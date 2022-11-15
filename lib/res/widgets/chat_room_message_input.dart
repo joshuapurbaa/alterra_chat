@@ -5,7 +5,14 @@ import '../res.dart';
 class ChatRoomMessageInput extends StatefulWidget {
   const ChatRoomMessageInput({
     Key? key,
+    this.onSubmitted,
+    required this.messageController,
+    this.onTap,
   }) : super(key: key);
+
+  final Function(String)? onSubmitted;
+  final TextEditingController messageController;
+  final Function()? onTap;
 
   @override
   State<ChatRoomMessageInput> createState() => _ChatRoomMessageInputState();
@@ -30,11 +37,13 @@ class _ChatRoomMessageInputState extends State<ChatRoomMessageInput> {
       ),
       child: Row(
         children: [
-          const Expanded(
+          Expanded(
             child: TextField(
+              controller: widget.messageController,
+              onSubmitted: widget.onSubmitted,
               autofocus: false,
               maxLines: null,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 fillColor: AppColors.greyColor,
                 hintText: AppStrings.hintTextCR,
               ),
@@ -42,16 +51,19 @@ class _ChatRoomMessageInputState extends State<ChatRoomMessageInput> {
             ),
           ),
           const Gaps(w: 10),
-          Container(
-            padding: const EdgeInsets.all(19),
-            decoration: BoxDecoration(
-              color: AppColors.orangeColor.withOpacity(0.2),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: const Image(
-              image: AssetImage(AppStrings.sendIcon),
-              width: 30,
-              color: AppColors.orangeColor,
+          GestureDetector(
+            onTap: widget.onTap,
+            child: Container(
+              padding: const EdgeInsets.all(19),
+              decoration: BoxDecoration(
+                color: AppColors.orangeColor.withOpacity(0.2),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: const Image(
+                image: AssetImage(AppStrings.sendIcon),
+                width: 30,
+                color: AppColors.orangeColor,
+              ),
             ),
           ),
         ],

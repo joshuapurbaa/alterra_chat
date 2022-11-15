@@ -7,3 +7,5 @@ export 'widgets/text_row.dart';
 export 'widgets/icon_app_bar.dart';
 export 'widgets/chat_room_app_bar.dart';
 export 'widgets/chat_room_message_input.dart';
+export 'widgets/my_message_widget.dart';
+export 'widgets/sender_message_widget.dart';

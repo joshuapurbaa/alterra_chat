@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../res/res.dart';
+import '../view_model/view_model.dart';
 import 'views.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -8,6 +10,7 @@ class SettingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userDao = Provider.of<UserDao>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         foregroundColor: AppColors.blackColor,
@@ -19,6 +22,7 @@ class SettingScreen extends StatelessWidget {
       body: Center(
         child: GestureDetector(
           onTap: () {
+            userDao.logout();
             Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(

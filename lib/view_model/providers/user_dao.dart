@@ -26,7 +26,9 @@ class UserDao extends ChangeNotifier {
         password: password,
       );
       notifyListeners();
-    } on FirebaseAuthException catch (e) {
+      return null;
+    } // 4
+    on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         log('The pasword provided is to weak.');
       } else if (e.code == 'email-already-in-use') {

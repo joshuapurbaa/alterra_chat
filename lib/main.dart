@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import 'res/res.dart';
+import 'view_model/providers/message_dao.dart';
 import 'view_model/view_model.dart';
 
 void main() async {
@@ -30,6 +31,9 @@ class AlterraChat extends StatelessWidget {
           lazy: false,
           create: (_) => UserDao(),
         ),
+        Provider(
+          create: (_) => MessageDao(),
+        )
       ],
       child: MaterialApp(
         builder: (context, child) => ResponsiveWrapper.builder(
