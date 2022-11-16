@@ -26,10 +26,10 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
     final userDao = Provider.of<UserDao>(context, listen: false);
     email = userDao.email();
     return Scaffold(
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(80),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(80),
         child: ChatRoomAppBar(
-          email: 'No name',
+          email: email ?? 'No name',
         ),
       ),
       body: Column(
