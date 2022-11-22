@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.alterra_chat">
    <application
-        android:label="alterra_chat"
+        android:label="Alterra Chat"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
